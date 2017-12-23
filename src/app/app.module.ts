@@ -4,11 +4,13 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { PopupComponent } from './popup/popup.component';
+import { TodoComponent } from './todo/todo.component';
+
 
 
 @NgModule({
   declarations: [
-    AppComponent, PopupComponent
+    AppComponent, PopupComponent, TodoComponent
   ],
   imports: [
     BrowserModule
