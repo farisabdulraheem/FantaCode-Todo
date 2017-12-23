@@ -1,0 +1,17 @@
+.todo-item {
+    border: 1px solid #dedede;
+    border-radius: 3px;
+    justify-content: space-around;
+    padding: 10px;
+    display: flex;
+    h3 {
+        margin: 0;
+    }
+    i {
+        color: #8c8c8c;
+    }
+}
+
+.actions {
+    display: flex;
+}
