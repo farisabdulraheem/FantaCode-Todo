@@ -8,3 +8,7 @@ textarea{width:100%;
 .submit,.cancel{margin-right:5px;}
 .todo_footer{display: flex;
 justify-content: flex-end;}
+
+span.errors {
+    color: red;
+}

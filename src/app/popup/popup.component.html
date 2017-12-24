@@ -1,20 +1,24 @@
 <div class="container_modal">
   <div class="todo_title">
-    
-  </div>
-  <div class="todo_head">
-<input type="text" placeholder="Enter ToDo" class="titlebox">
-  </div>
-  <div class="todo_desc">
-  <textarea class="descbox" placeholder="Enter Description"></textarea>
-  </div>
-  <div class="todo_footer">
-    <button class="submit"> 
-    </button>
-    <button class="cancel">
-        <i class="material-icons">clear</i>
-        
-    </button>
 
+  </div>
+  <form [formGroup]="todoForm" (submit)="OnFormSubmitted($event)">
+    <div class="todo_head">
+      <input type="text" [formControlName]="'Task'" [placeholder]="taskPlaceHolder" class="titlebox">
+      <span *ngIf="todoForm.controls['Task'].hasError('required') && (todoForm.controls['Task'].dirty || todoForm.controls['Task'].touched)" class="errors">Task is Required.</span>
+    </div>
+    <div class="todo_desc">
+      <textarea class="descbox" [formControlName]="'Description'" placeholder="Enter Description"></textarea>
+    </div>
+
+    <button type="submit">Submit</button>
+  </form>
+  <div class="todo_footer">
+    <button class="submit">
+    </button>
+    <button class="cancel" (click)="OnCloseClicked()">
+      <i class="material-icons">clear</i>
+
+    </button>
   </div>
 </div>
