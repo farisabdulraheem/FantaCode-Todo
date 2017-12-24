@@ -1,6 +1,9 @@
+
+<div class="box">
 <div class="container_modal">
   <div class="todo_title">
-
+         <button class="submit"><i class="large material-icons icon">create</i></button>
+            <button class="submit"> <i class="large material-icons icon">delete_sweep</i></button>
   </div>
   <form [formGroup]="todoForm" (submit)="OnFormSubmitted($event)">
     <div class="todo_head">
@@ -8,7 +11,7 @@
       <span *ngIf="todoForm.controls['Task'].hasError('required') && (todoForm.controls['Task'].dirty || todoForm.controls['Task'].touched)" class="errors">Task is Required.</span>
     </div>
     <div class="todo_desc">
-      <textarea class="descbox" [formControlName]="'Description'" placeholder="Enter Description"></textarea>
+      <textarea class="descbox" [formControlName]="'Description'" placeholder="Enter Description About your task"></textarea>
     </div>
 
     <button type="submit">Submit</button>
@@ -18,7 +21,7 @@
     </button>
     <button class="cancel" (click)="OnCloseClicked()">
       <i class="material-icons">clear</i>
-
     </button>
   </div>
 </div>
+
