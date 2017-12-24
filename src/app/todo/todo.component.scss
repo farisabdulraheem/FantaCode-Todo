@@ -1,17 +1,33 @@
 .todo-item {
     border: 1px solid #dedede;
     border-radius: 3px;
-    justify-content: space-around;
+    justify-content: space-between;
     padding: 10px;
+    background: #ffffff;
+    font-family: Spinnaker;
+   margin-bottom: 10px;
+  
     display: flex;
-    h3 {
+    h4 { 
         margin: 0;
+        color:#838383;
     }
-    i {
-        color: #8c8c8c;
-    }
+  
 }
-
+.create .c{color: #ffffff;}
 .actions {
     display: flex;
 }
+.hoverclass{display:flex;
+    
+    }
+.todo-item:hover {
+    .create .c{
+        color:#838383;
+        cursor: pointer;
+    }
+cursor: pointer;
+}
+.delete .cl:hover{color:#da1616;  cursor: pointer;}
+.done .ch,.delete .cl{color: #dedede;}
+.done .ch:hover{color: #14c03f ; }

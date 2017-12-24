@@ -4,7 +4,12 @@
     <h1>To Do List</h1>
   </div>
   <div class="addnote">
-    <button class="button" (click)="OnAddButtonClicked()">+</button>
+    <app-todo-root></app-todo-root>
+    <app-todo-root></app-todo-root>
+    <app-todo-root></app-todo-root>
+  
+    <div class="float_icon">
+    <button class="button" (click)="OnAddButtonClicked()">+</button></div>
   </div>
 
   <app-popup-root *ngIf="show" (close)="OnAddClosed()"></app-popup-root>
