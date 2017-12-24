@@ -17,6 +17,7 @@
         float: right;
         padding: 10px;
     }
+
 }
 
 .titlebox,
@@ -67,4 +68,7 @@ textarea {
 
 .delete {
     margin: 5px;
-}
+
+span.errors {
+    color: red;
+  }
