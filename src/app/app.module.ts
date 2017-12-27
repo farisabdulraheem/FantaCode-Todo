@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { PopupComponent } from './popup/popup.component';
 import { TodoComponent } from './todo/todo.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TodoService } from './services/todo.service';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -16,9 +18,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [TodoService],
   bootstrap: [AppComponent]
 })
-export class AppModule {  }
+export class AppModule { }
