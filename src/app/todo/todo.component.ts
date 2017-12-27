@@ -1,7 +1,7 @@
 import { Component, Input, EventEmitter } from '@angular/core';
 import { Todo } from '../todo.model';
 import { TodoService } from '../services/todo.service';
-import { Output } from '@angular/core/src/metadata/directives';
+import { Output } from '@angular/core/';
 
 @Component({
   selector: 'app-todo-root',
@@ -10,7 +10,7 @@ import { Output } from '@angular/core/src/metadata/directives';
 })
 export class TodoComponent {
   @Input() todo : Todo;
-@Output() event:EventEmitter<String>=new EventEmitter<String>();
+@Output() idchild:EventEmitter<String>=new EventEmitter<String>();
 
  show: boolean = false;
  
