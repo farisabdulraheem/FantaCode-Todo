@@ -2,15 +2,17 @@
     <div class="action done">
         <i class="material-icons ch">check</i>
     </div>
+  
     <div class="content">
-        <h4>My Task</h4>
+        <h4>{{todo.task}}</h4>
     </div>
     <div class="right actions">
         <div class="action create ">
-            <i class="material-icons c">create</i>
+            <i class="material-icons c" (click)="OnEditButtonClicked(todo.todoId)">create</i>
         </div>
         <div class="action delete">
             <i class="material-icons cl">clear</i>
         </div>
     </div>
 </div>
+<app-popup-root *ngIf="show" (close)="OnAddClosed()"></app-popup-root>

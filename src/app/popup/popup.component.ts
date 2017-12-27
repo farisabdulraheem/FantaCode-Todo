@@ -1,5 +1,7 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Todo } from '../todo.model';
+import { TodoService } from '../services/todo.service';
 
 @Component({
   selector: 'app-popup-root',
@@ -14,24 +16,37 @@ export class PopupComponent {
   taskPlaceHolder = "Enter a Task";
 
   constructor(
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private todoService: TodoService
   ) {
     this.todoForm = fb.group(
       {
         'Task': [null, Validators.required],
-        'Description': "Deslfkljkm kdklf fkldfkl dkf dk"
+        'Description': null
       }
     );
   }
+  
+
 
   OnCloseClicked() {
     this.close.emit();
   }
+     
+  async OnFormSubmitted(values: Todo) {
+    console.log(values);
 
-  OnFormSubmitted(e) {
     if(this.todoForm.valid) {
-      console.log(this.todoForm.value);
-      console.log("Form is Valid.");
+      console.log("Starting adding process.");
+      try {
+        await this.todoService.AddTodo(values);
+        console.log("Successfully added.");
+        this.close.emit();
+        window.location.reload();
+      }
+      catch(e) {
+        console.error("Some error occured while adding the todo: ", e);
+      }
     }
     else {
       for(let c in this.todoForm.controls) {
