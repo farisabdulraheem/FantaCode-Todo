@@ -13,7 +13,7 @@ export class PopupComponent implements OnInit {
   @Input() todo : Todo;
   todoForm: FormGroup;
 
-  taskPlaceHolder = "hello kareem";
+ 
 
   constructor(
     private fb: FormBuilder,
@@ -21,7 +21,7 @@ export class PopupComponent implements OnInit {
   ) {
     this.todoForm = fb.group(
       {
-        'todoId': null,
+        'todoId': 0,
         'Task': [null, Validators.required],
         'Description': null
       }
@@ -40,17 +40,17 @@ export class PopupComponent implements OnInit {
 
  OnCloseClicked() {
     this.close.emit();
+    window.location.reload();
   }
      
   async OnFormSubmitted(values: Todo) {
     console.log(values);
 
-    if(this.todoForm.valid) {
-      console.log("Starting adding process.");
+    if(values.todoId!=0){
+      console.log("Starting editing process.");
       try {
-        await this.todoService.AddTodo(values);
-        console.log("Successfully added.");
-
+        await this.todoService.UpdateListTodo(values.todoId,values);
+        console.log("Successfully edited.");
         this.close.emit();
         window.location.reload();
       }
@@ -58,12 +58,20 @@ export class PopupComponent implements OnInit {
         console.error("Some error occured while adding the todo: ", e);
       }
     }
-    else {
-      for(let c in this.todoForm.controls) {
-        this.todoForm.controls[c].markAsTouched();
+    else     
+ {
+      console.log("Starting adding process.");
+      try {
+        await this.todoService.AddTodo(values);
+        console.log("Successfully added.");
+        this.close.emit();
+        window.location.reload();
       }
-      console.log("Form is not valid.");
+      catch(e) {
+        console.error("Some error occured while adding the todo: ", e);
+      }
     }
+    
    
   }
 }

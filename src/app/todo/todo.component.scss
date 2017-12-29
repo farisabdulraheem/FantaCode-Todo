@@ -14,6 +14,15 @@
     }
   
 }
+.active{
+    color:red;
+text-decoration-color: #da1616;
+    text-decoration: line-through;
+}
+
+.checked {
+    color: green !important;
+}
 .create .c{color: #ffffff;}
 .actions {
     display: flex;

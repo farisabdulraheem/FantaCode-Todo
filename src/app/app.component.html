@@ -7,11 +7,11 @@
   <!-- -->
   
   <div class="addnote">
-    <app-todo-root *ngFor="let x of TodoList" (onTodoEdit)="OnTodoEditRequest($event)" [todo]="x" ></app-todo-root>
+    <app-todo-root *ngFor="let x of TodoList"   (onTodoEdit)="OnTodoEditRequest($event)" [todo]="x" ></app-todo-root>
 
     <div class="float_icon">
       <button class="button" (click)="OnAddButtonClicked()" >+ </button>
     </div>
 </div>
   </div>
-<app-popup-root *ngIf="show" [todo]="EditingTodo"  (close)="OnAddClosed()"></app-popup-root> 
+<app-popup-root *ngIf="show"   [todo]="EditingTodo"  (close)="OnAddClosed()"></app-popup-root> 

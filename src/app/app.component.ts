@@ -11,6 +11,7 @@ import { Input } from '@angular/core/';
 
 export class AppComponent {
   show: Boolean = false;
+  tid:number = 1;
   showMessage:String;
   TodoList: Todo[] = [];
 constructor(private todoService: TodoService) { }
@@ -34,14 +35,11 @@ async ngOnInit() {
     this.show = true;
 
 
+
   }
 
   OnAddClosed() {
     this.show = false;
-  }
-  OnIdget($event)
-  {console.log("hello");
- 
   }
 
   OnTodoEditRequest(todo: Todo) {
