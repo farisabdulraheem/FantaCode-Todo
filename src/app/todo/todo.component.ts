@@ -9,26 +9,17 @@ import { Output } from '@angular/core/';
   styleUrls: ['./todo.component.scss']
 })
 export class TodoComponent {
-  @Input() todo : Todo;
-@Output() idchild:EventEmitter<String>=new EventEmitter<String>();
+  @Input() todo: Todo;
+  @Output() onTodoEdit: EventEmitter<Todo> = new EventEmitter<Todo>();
 
- show: boolean = false;
- 
- constructor(private todoService: TodoService) { }
-  async OnEditButtonClicked(id: String){
-    console.log("editbuttonclicked" + id);
-     this.show = true;
-     try {
-      var s = await this.todoService.UpdateListTodo(id,this.todo);
-
-      // // 
-      
-    }
-    catch (e) {
-      console.error("Some error occured while adding the todo: ", e);
-    }
+  show: boolean = false;
+  public id: String;
+  constructor(private todoService: TodoService) { }
+  OnEditButtonClicked(todo: Todo) {
+    this.onTodoEdit.emit(todo);
   }
   OnAddClosed() {
     this.show = false;
-  }  
+  }
+
 }

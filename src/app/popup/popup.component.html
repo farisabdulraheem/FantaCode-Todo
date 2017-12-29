@@ -7,7 +7,8 @@
    </div>
    <form [formGroup]="todoForm" (submit)="OnFormSubmitted(todoForm.value)">
      <div class="todo_head">
-       <input type="text" [formControlName]="'Task'" [placeholder]="taskPlaceHolder" class="titlebox">
+     
+       <input type="text" [formControlName]="'Task'" class="titlebox">
        <span *ngIf="todoForm.controls['Task'].hasError('required') && (todoForm.controls['Task'].dirty || todoForm.controls['Task'].touched)" class="errors">Task is Required.</span>
      </div>
      <div class="todo_desc">

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Todo } from './todo.model';
 import { TodoService } from './services/todo.service';
-import { Input } from '@angular/core/src/metadata/directives';
+import { Input } from '@angular/core/';
 
 @Component({
   selector: 'app-root',
@@ -11,9 +11,11 @@ import { Input } from '@angular/core/src/metadata/directives';
 
 export class AppComponent {
   show: Boolean = false;
+  showMessage:String;
   TodoList: Todo[] = [];
 constructor(private todoService: TodoService) { }
-  async ngOnInit() {
+EditingTodo: Todo = null;
+async ngOnInit() {
 
     try {
       var s = await this.todoService.GetListTodo();
@@ -37,6 +39,18 @@ constructor(private todoService: TodoService) { }
   OnAddClosed() {
     this.show = false;
   }
+  OnIdget($event)
+  {console.log("hello");
+ 
+  }
+
+  OnTodoEditRequest(todo: Todo) {
+    console.warn(todo);
+    this.EditingTodo = todo;
+    this.show = true;
+  }
+
+
 
 }
 

@@ -5,14 +5,15 @@
   
     <div class="content">
         <h4>{{todo.task}}</h4>
+        <span></span>
     </div>
     <div class="right actions">
         <div class="action create ">
-            <i class="material-icons c" (click)="OnEditButtonClicked(todo.todoId)">create</i>
+            <i class="material-icons c" (click)="OnEditButtonClicked(todo)" >create</i>
         </div>
         <div class="action delete">
             <i class="material-icons cl">clear</i>
         </div>
     </div>
 </div>
-<app-popup-root *ngIf="show" (close)="OnAddClosed()"></app-popup-root>
+<app-popup-root *ngIf="show"  (close)="OnAddClosed()"></app-popup-root>
