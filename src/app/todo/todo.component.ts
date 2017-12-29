@@ -11,6 +11,7 @@ import { Output } from '@angular/core/';
 export class TodoComponent {
   @Input() todo: Todo;
   @Output() onTodoEdit: EventEmitter<Todo> = new EventEmitter<Todo>();
+  isActive: boolean = false;
 
   show: boolean = false;
   public id: String;
@@ -20,6 +21,36 @@ export class TodoComponent {
   }
   OnAddClosed() {
     this.show = false;
+  }
+  async OnDeleteButtonClicked(values: Todo) {
+    console.log(" Deleting process.");
+    try {
+      await this.todoService.DeleteTodo(values.todoId);
+      console.log("Successfully deleted");
+      window.location.reload();
+
+    }
+    catch (e) {
+      console.log("some error occured", e);
+    }
+  }
+  async OnCheckButtonClicked(values: Todo) {
+
+    console.log(" checking process.");
+    try {
+      values.done = !values.done;
+      await this.todoService.UpdateListTodo(values.todoId, values);
+      console.log("Successfully checked.");
+      console.log(values.done);
+    }
+
+    catch (e) {
+      console.log("some error occured", e);
+    }
+  }
+
+  IsDone(todo: Todo) {
+    return todo.done;
   }
 
 }

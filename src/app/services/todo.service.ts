@@ -32,4 +32,19 @@ export class TodoService {
        
       return this.http.put(this.BaseUrl + 'api/Todo/' +id, todo).toPromise();
    }
+
+// Delete Task
+
+   async DeleteTodo(id){
+       console.log(id);
+    return this.http.delete(this.BaseUrl + 'api/Todo/' +id).toPromise();
+ }
+
+ //Done or Strike Task
+
+   async DoneTodo(id){
+    return this.http.get(this.BaseUrl + 'api/Todo/done/' +id).toPromise();
+
+   }
+
 }
